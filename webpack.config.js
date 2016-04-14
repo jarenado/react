@@ -17,6 +17,10 @@ var config = {
 		test : /\.jsx?/,
 		include : APP_DIR,
 		loader : 'babel'
+	    },
+	    {
+		test: /\.sass$/,
+		loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
 	    }
 	]
     }

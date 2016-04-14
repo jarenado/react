@@ -1,11 +1,12 @@
 import React from 'react';
 import {render} from 'react-dom';
+import Grid from './Grid';
 
 class Home extends React.Component {
   render() {
     return (
-      <div className='alert alert-info'>
-        Hello from Home Component
+      <div> 
+	<Grid />
       </div>
     );
   }

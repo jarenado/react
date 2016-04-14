@@ -1,7 +1,16 @@
 var express = require("express");
 var path = require("path");
 // Babel ES6/JSX Compiler
-require('babel-register');
+// require('babel-register', ({ignore: /\.sass/,}));
+require('babel-core/register')({
+  presets: ['es2015', 'react']
+});
+require.extensions['.sass'] = () => {
+  return;
+};
+require.extensions['.css'] = () => {
+  return;
+};
 
 var swig  = require('swig');
 var React = require('react');

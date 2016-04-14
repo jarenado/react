@@ -25947,7 +25947,7 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Home = __webpack_require__(/*! ./Home */ 226);
+	var _Home = __webpack_require__(/*! ./Home */ 227);
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
@@ -25984,6 +25984,10 @@
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
+	var _Header = __webpack_require__(/*! ./Header */ 226);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26007,6 +26011,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
+	        _react2.default.createElement(_Header2.default, null),
 	        this.props.children,
 	        _react2.default.createElement(_Footer2.default, null)
 	      );
@@ -26074,6 +26079,68 @@
 
 /***/ },
 /* 226 */
+/*!**********************************!*\
+  !*** ./src/client/app/Header.js ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 89);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Header = function (_React$Component) {
+		_inherits(Header, _React$Component);
+	
+		function Header() {
+			_classCallCheck(this, Header);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).apply(this, arguments));
+		}
+	
+		_createClass(Header, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'header',
+					null,
+					_react2.default.createElement(
+						'h2',
+						null,
+						_react2.default.createElement(
+							'span',
+							null,
+							'This is the header'
+						)
+					)
+				);
+			}
+		}]);
+	
+		return Header;
+	}(_react2.default.Component);
+	
+	exports.default = Header;
+
+/***/ },
+/* 227 */
 /*!********************************!*\
   !*** ./src/client/app/Home.js ***!
   \********************************/
@@ -26093,11 +26160,9 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 89);
 	
-	var _Grid = __webpack_require__(/*! ./Grid */ 227);
+	var _Grid = __webpack_require__(/*! ./Grid */ 228);
 	
 	var _Grid2 = _interopRequireDefault(_Grid);
-	
-	__webpack_require__(/*! style!./css/grid.sass */ 228);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -26106,6 +26171,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	__webpack_require__(/*! ./css/grid.sass */ 229);
 	
 	var Home = function (_React$Component) {
 	  _inherits(Home, _React$Component);
@@ -26133,7 +26200,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 227 */
+/* 228 */
 /*!********************************!*\
   !*** ./src/client/app/Grid.js ***!
   \********************************/
@@ -26227,39 +26294,10 @@
 	exports.default = Grid;
 
 /***/ },
-/* 228 */
-/*!*******************************************************!*\
-  !*** ./~/style-loader!./src/client/app/css/grid.sass ***!
-  \*******************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/style-loader!./../../../../~/css-loader!./grid.sass */ 229);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 232)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/style-loader/index.js!./../../../../node_modules/css-loader/index.js!./grid.sass", function() {
-				var newContent = require("!!./../../../../node_modules/style-loader/index.js!./../../../../node_modules/css-loader/index.js!./grid.sass");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
 /* 229 */
-/*!**********************************************************************!*\
-  !*** ./~/style-loader!./~/css-loader!./src/client/app/css/grid.sass ***!
-  \**********************************************************************/
+/*!**************************************!*\
+  !*** ./src/client/app/css/grid.sass ***!
+  \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
@@ -26296,7 +26334,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html,body{\n    margin: 0;\n    padding: 0;\n}\n\nul {\n    border: 2px dotted black;\n    flex-align: center;\n    padding: 0;\n    display: flex;\n    display: -webkit-flexbox; \n    flex-direction: row;\n    width: 98%;\n    max-width: 98%;\n    flex-wrap: wrap;\n}\n\n/* ul li:nth-child(3) { */\n/*     order: 3; */\n/*     border: thin solid green; */\n/* } */\n\n/* ul li:nth-child(1) { */\n/*     order: 2; */\n/*     border: thin solid red; */\n/* } */\n\nli  {\n    text-align: center;\n    list-style: none;\n    margin: 10px;\n    padding: 10px 10px;\n    border: thin solid blue;\n    flex: 250px ;\n}\n.preview {\n    display: block;\n    width: 100%;\n    background: #ccc;\n    padding: 40px;\n    text-align: center;\n}\n", ""]);
+	exports.push([module.id, "html,body {\n    margin: 0;\n    padding: 0;\n}\n\nh2 {\n  span {\n    color: blue;\n  } \n}\n\n\nul {\n    border: 2px dotted black;\n    flex-align: center;\n    padding: 0;\n    display: flex;\n    display: -webkit-flexbox; \n    flex-direction: row;\n    width: 98%;\n    max-width: 98%;\n    flex-wrap: wrap;\n}\n\n/* ul li:nth-child(3) { */\n/*     order: 3; */\n/*     border: thin solid green; */\n/* } */\n\n/* ul li:nth-child(1) { */\n/*     order: 2; */\n/*     border: thin solid red; */\n/* } */\n\nli  {\n    text-align: center;\n    list-style: none;\n    margin: 10px;\n    padding: 10px 10px;\n    border: thin solid blue;\n    flex: 250px ;\n}\n.preview {\n    display: block;\n    width: 100%;\n    background: #ccc;\n    padding: 40px;\n    text-align: center;\n}\n", ""]);
 	
 	// exports
 

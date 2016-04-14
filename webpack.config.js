@@ -17,7 +17,7 @@ var config = {
 		include : APP_DIR,
 		loader : 'babel'
 	    },
-	    { test: /\.sass$/,include: APP_DIR, loader: 'style!css' }
+	    { test: /\.scss$/,include: APP_DIR, loaders: ['style','css','sass'] }
 	]
     }
     

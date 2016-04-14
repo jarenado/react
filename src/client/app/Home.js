@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Grid from './Grid';
-require('./css/grid.sass');
+require('./css/grid.scss');
 
 class Home extends React.Component {
   render() {

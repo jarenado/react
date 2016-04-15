@@ -5,9 +5,22 @@ require('./css/grid.scss');
 
 class Home extends React.Component {
   render() {
+      var data = [
+	  {
+	      title: 'gucci.com',
+	      description: 'This is the description for Gucci'
+	 
+	  },
+	  {
+	      title: 'coach.com',
+	      description: 'This is the description for Coach'
+	 
+	  },
+	  
+      ]
     return (
       <div> 
-	<Grid />
+	    <Grid sites={data} />
       </div>
     );
   }

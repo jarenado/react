@@ -26149,7 +26149,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+			value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26175,26 +26175,35 @@
 	__webpack_require__(/*! ./css/grid.scss */ 229);
 	
 	var Home = function (_React$Component) {
-	  _inherits(Home, _React$Component);
+			_inherits(Home, _React$Component);
 	
-	  function Home() {
-	    _classCallCheck(this, Home);
+			function Home() {
+					_classCallCheck(this, Home);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
-	  }
+					return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
+			}
 	
-	  _createClass(Home, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_Grid2.default, null)
-	      );
-	    }
-	  }]);
+			_createClass(Home, [{
+					key: 'render',
+					value: function render() {
+							var data = [{
+									title: 'gucci.com',
+									description: 'This is the description for Gucci'
 	
-	  return Home;
+							}, {
+									title: 'coach.com',
+									description: 'This is the description for Coach'
+	
+							}];
+							return _react2.default.createElement(
+									'div',
+									null,
+									_react2.default.createElement(_Grid2.default, { sites: data })
+							);
+					}
+			}]);
+	
+			return Home;
 	}(_react2.default.Component);
 	
 	exports.default = Home;
@@ -26209,7 +26218,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+				value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26231,64 +26240,37 @@
 	// require('stylesheets/modules/grid')
 	
 	var Grid = function (_React$Component) {
-		_inherits(Grid, _React$Component);
+				_inherits(Grid, _React$Component);
 	
-		function Grid() {
-			_classCallCheck(this, Grid);
+				function Grid(props) {
+							_classCallCheck(this, Grid);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).apply(this, arguments));
-		}
+							return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this, props));
+				}
 	
-		_createClass(Grid, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'ul',
-						null,
-						_react2.default.createElement(
-							'li',
-							{ 'data-preview': 'This is the preview for item one' },
-							'item one'
-						),
-						_react2.default.createElement(
-							'li',
-							{ 'data-preview': 'This is the preview for item two' },
-							'item two'
-						),
-						_react2.default.createElement(
-							'li',
-							{ 'data-preview': 'This is the preview for item three' },
-							'item three'
-						),
-						_react2.default.createElement(
-							'li',
-							{ 'data-preview': 'This is the preview for item four' },
-							'item four'
-						),
-						_react2.default.createElement(
-							'li',
-							{ 'data-preview': 'This is the preview for item five' },
-							'item five'
-						),
-						_react2.default.createElement(
-							'li',
-							{ 'data-preview': 'This is the preview for item six' },
-							'item six'
-						),
-						_react2.default.createElement(
-							'li',
-							{ 'data-preview': 'This is the preview for item seven' },
-							'item seven'
-						)
-					)
-				);
-			}
-		}]);
+				_createClass(Grid, [{
+							key: 'render',
+							value: function render() {
+										var sites = this.props.sites.map(function (site) {
+													return _react2.default.createElement(
+																'li',
+																{ 'data-preview': site.description },
+																site.title
+													);
+										});
+										return _react2.default.createElement(
+													'div',
+													null,
+													_react2.default.createElement(
+																'ul',
+																{ 'class': 'sites' },
+																sites
+													)
+										);
+							}
+				}]);
 	
-		return Grid;
+				return Grid;
 	}(_react2.default.Component);
 	
 	exports.default = Grid;

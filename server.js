@@ -5,7 +5,7 @@ var path = require("path");
 require('babel-core/register')({
   presets: ['es2015', 'react']
 });
-require.extensions['.sass'] = () => {
+require.extensions['.scss'] = () => {
   return;
 };
 require.extensions['.css'] = () => {

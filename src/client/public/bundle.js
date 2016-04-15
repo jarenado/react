@@ -26172,7 +26172,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	__webpack_require__(/*! ./css/grid.scss */ 229);
+	__webpack_require__(/*! ./css/grid.scss */ 230);
 	
 	var Home = function (_React$Component) {
 			_inherits(Home, _React$Component);
@@ -26218,6 +26218,71 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 89);
+	
+	var _Site = __webpack_require__(/*! ./Site */ 229);
+	
+	var _Site2 = _interopRequireDefault(_Site);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Grid = function (_React$Component) {
+		_inherits(Grid, _React$Component);
+	
+		function Grid() {
+			_classCallCheck(this, Grid);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).apply(this, arguments));
+		}
+	
+		_createClass(Grid, [{
+			key: 'render',
+			value: function render() {
+				var sites = this.props.sites.map(function (site) {
+					return _react2.default.createElement(_Site2.default, { site: site });
+				});
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'ul',
+						{ 'class': 'sites' },
+						sites
+					)
+				);
+			}
+		}]);
+	
+		return Grid;
+	}(_react2.default.Component);
+	
+	exports.default = Grid;
+
+/***/ },
+/* 229 */
+/*!********************************!*\
+  !*** ./src/client/app/Site.js ***!
+  \********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
 				value: true
 	});
 	
@@ -26237,46 +26302,48 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// require('stylesheets/modules/grid')
+	var Site = function (_React$Component) {
+				_inherits(Site, _React$Component);
 	
-	var Grid = function (_React$Component) {
-				_inherits(Grid, _React$Component);
+				function Site() {
+							_classCallCheck(this, Site);
 	
-				function Grid(props) {
-							_classCallCheck(this, Grid);
+							var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Site).call(this));
 	
-							return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this, props));
+							_this.handleClick = _this.handleClick.bind(_this);
+							_this.state = { isSelected: false };
+							return _this;
 				}
 	
-				_createClass(Grid, [{
+				_createClass(Site, [{
+							key: 'handleClick',
+							value: function handleClick() {
+										this.setState({
+													isSelected: true
+										});
+										console.log(this.state.isSelected);
+							}
+				}, {
 							key: 'render',
 							value: function render() {
-										var sites = this.props.sites.map(function (site) {
-													return _react2.default.createElement(
-																'li',
-																{ 'data-preview': site.description },
-																site.title
-													);
-										});
+										var isSelected = this.state.isSelected;
+										// let style = (isSelected) ? 'blue' : 'red';
+										// style = "background-color:" + style;
 										return _react2.default.createElement(
-													'div',
-													null,
-													_react2.default.createElement(
-																'ul',
-																{ 'class': 'sites' },
-																sites
-													)
+													'li',
+													{ onClick: this.handleClick, 'data-preview': this.props.site.description },
+													this.props.site.title
 										);
 							}
 				}]);
 	
-				return Grid;
+				return Site;
 	}(_react2.default.Component);
 	
-	exports.default = Grid;
+	exports.default = Site;
 
 /***/ },
-/* 229 */
+/* 230 */
 /*!**************************************!*\
   !*** ./src/client/app/css/grid.scss ***!
   \**************************************/
@@ -26285,10 +26352,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../../~/css-loader!./../../../../~/sass-loader!./grid.scss */ 230);
+	var content = __webpack_require__(/*! !./../../../../~/css-loader!./../../../../~/sass-loader!./grid.scss */ 231);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 232)(content, {});
+	var update = __webpack_require__(/*! ./../../../../~/style-loader/addStyles.js */ 233)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26305,13 +26372,13 @@
 	}
 
 /***/ },
-/* 230 */
+/* 231 */
 /*!*********************************************************************!*\
   !*** ./~/css-loader!./~/sass-loader!./src/client/app/css/grid.scss ***!
   \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 231)();
+	exports = module.exports = __webpack_require__(/*! ./../../../../~/css-loader/lib/css-base.js */ 232)();
 	// imports
 	
 	
@@ -26322,7 +26389,7 @@
 
 
 /***/ },
-/* 231 */
+/* 232 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -26381,7 +26448,7 @@
 
 
 /***/ },
-/* 232 */
+/* 233 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/

@@ -26191,6 +26191,10 @@
 									description: 'This is the description for Gucci'
 	
 							}, {
+									title: 'jcrew.com',
+									description: 'This is the description for JCrew'
+	
+							}, {
 									title: 'coach.com',
 									description: 'This is the description for Coach'
 	
@@ -26325,15 +26329,11 @@
 							key: 'handleClick',
 							value: function handleClick() {
 										var siteData = this.refs.siteData.getAttribute('data-preview');
-										// console.log(siteData);
 										this.props.onClick(siteData);
 							}
 				}, {
 							key: 'render',
 							value: function render() {
-										// let isSelected = this.state.isSelected;
-										// let style = (isSelected) ? 'blue' : 'red';
-										// style = "background-color:" + style;
 										return _react2.default.createElement(
 													'li',
 													{ ref: 'siteData', onClick: this.handleClick, 'data-preview': this.props.site.description },

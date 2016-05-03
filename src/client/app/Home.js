@@ -12,6 +12,11 @@ class Home extends React.Component {
 	 
 	  },
 	  {
+	      title: 'jcrew.com',
+	      description: 'This is the description for JCrew'
+	 
+	  },
+	  {
 	      title: 'coach.com',
 	      description: 'This is the description for Coach'
 	 

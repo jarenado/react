@@ -26218,7 +26218,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+				value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26242,33 +26242,40 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var Grid = function (_React$Component) {
-		_inherits(Grid, _React$Component);
+				_inherits(Grid, _React$Component);
 	
-		function Grid() {
-			_classCallCheck(this, Grid);
+				function Grid() {
+							_classCallCheck(this, Grid);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).apply(this, arguments));
-		}
+							return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this));
+							// this.handleModal = this.handleModal.bind(this);
+				}
 	
-		_createClass(Grid, [{
-			key: 'render',
-			value: function render() {
-				var sites = this.props.sites.map(function (site) {
-					return _react2.default.createElement(_Site2.default, { site: site });
-				});
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'ul',
-						{ 'class': 'sites' },
-						sites
-					)
-				);
-			}
-		}]);
+				_createClass(Grid, [{
+							key: 'handleModal',
+							value: function handleModal(data) {
+										console.log("this is from the child " + data);
+							}
+				}, {
+							key: 'render',
+							value: function render() {
+										var sites = this.props.sites.map(function (site) {
+													return _react2.default.createElement(_Site2.default, { site: site, onClick: this.handleModal });
+										}.bind(this));
 	
-		return Grid;
+										return _react2.default.createElement(
+													'div',
+													null,
+													_react2.default.createElement(
+																'ul',
+																{ 'class': 'sites' },
+																sites
+													)
+										);
+							}
+				}]);
+	
+				return Grid;
 	}(_react2.default.Component);
 	
 	exports.default = Grid;
@@ -26311,27 +26318,25 @@
 							var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Site).call(this));
 	
 							_this.handleClick = _this.handleClick.bind(_this);
-							_this.state = { isSelected: false };
 							return _this;
 				}
 	
 				_createClass(Site, [{
 							key: 'handleClick',
 							value: function handleClick() {
-										this.setState({
-													isSelected: true
-										});
-										console.log(this.state.isSelected);
+										var siteData = this.refs.siteData.getAttribute('data-preview');
+										// console.log(siteData);
+										this.props.onClick(siteData);
 							}
 				}, {
 							key: 'render',
 							value: function render() {
-										var isSelected = this.state.isSelected;
+										// let isSelected = this.state.isSelected;
 										// let style = (isSelected) ? 'blue' : 'red';
 										// style = "background-color:" + style;
 										return _react2.default.createElement(
 													'li',
-													{ onClick: this.handleClick, 'data-preview': this.props.site.description },
+													{ ref: 'siteData', onClick: this.handleClick, 'data-preview': this.props.site.description },
 													this.props.site.title
 										);
 							}

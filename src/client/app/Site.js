@@ -5,23 +5,21 @@ class Site extends React.Component {
     constructor() {
 	super();
 	this.handleClick = this.handleClick.bind(this);
-	this.state = {isSelected: false}
     }
 
     
     handleClick(){
-	this.setState({
-	    isSelected: true
-	});
-	console.log(this.state.isSelected);
+	var siteData = this.refs.siteData.getAttribute('data-preview');
+	// console.log(siteData);
+	this.props.onClick(siteData);
     }
 
     render() {
-	let isSelected = this.state.isSelected;
+	// let isSelected = this.state.isSelected;
 	// let style = (isSelected) ? 'blue' : 'red';
 	// style = "background-color:" + style;
 	return (
-		<li onClick={this.handleClick}  data-preview={this.props.site.description}>
+		<li ref="siteData" onClick={this.handleClick}  data-preview={this.props.site.description}>
 		{this.props.site.title}
 	    </li>
 	);

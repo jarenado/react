@@ -3,10 +3,9 @@ html,body {
     padding: 0;
 }
 
-
 h2 {
     span {
-	color: blue;
+    color: blue;
     }
 }
 
@@ -23,16 +22,6 @@ ul {
     flex-wrap: wrap;
 }
 
-/* ul li:nth-child(3) { */
-/*     order: 3; */
-/*     border: thin solid green; */
-/* } */
-
-/* ul li:nth-child(1) { */
-/*     order: 2; */
-/*     border: thin solid red; */
-/* } */
-
 li  {
     text-align: center;
     list-style: none;
@@ -41,17 +30,4 @@ li  {
     border: thin solid blue;
     flex: 250px ;
     cursor: pointer;
-}
-.preview {
-    display: block;
-    width: 100%;
-    background: #ccc;
-    padding: 40px;
-    text-align: center;
-}
-.show {
-    display: block;
-}
-.hide {
-  display: none;
 }

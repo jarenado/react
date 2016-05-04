@@ -1,0 +1,13 @@
+#modal.show {
+    display: block;
+}
+#modal.hide {
+  display: none;
+}
+
+#modal {
+    width: 100%;
+    background: #ccc;
+    padding: 40px;
+    text-align: center;
+}

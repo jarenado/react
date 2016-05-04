@@ -26007,6 +26007,7 @@
 	
 	        _this.handleModal = _this.handleModal.bind(_this);
 	        _this.state = {
+	            isActive: false,
 	            activeModal: '1',
 	            sites: [{
 	                id: '0',
@@ -26029,7 +26030,7 @@
 	    _createClass(Grid, [{
 	        key: 'handleModal',
 	        value: function handleModal(data) {
-	            this.setState({ activeModal: data });
+	            this.setState({ activeModal: data, isActive: true });
 	        }
 	    }, {
 	        key: 'render',
@@ -26038,6 +26039,8 @@
 	            var sites = this.state.sites.map(function (site) {
 	                return _react2.default.createElement(_Site2.default, { site: site, onClick: this.handleModal });
 	            }.bind(this));
+	            var inlineStyles = this.state.isActive ? 'show' : 'hide';
+	            console.log(inlineStyles);
 	
 	            return _react2.default.createElement(
 	                'div',
@@ -26047,7 +26050,7 @@
 	                    { 'class': 'sites' },
 	                    sites
 	                ),
-	                _react2.default.createElement(_Modal2.default, { site: site })
+	                _react2.default.createElement(_Modal2.default, { style: inlineStyles, site: site })
 	            );
 	        }
 	    }]);
@@ -26098,7 +26101,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html, body {\n  margin: 0;\n  padding: 0; }\n\nh2 span {\n  color: blue; }\n\nul {\n  border: 2px dotted black;\n  flex-align: center;\n  padding: 0;\n  display: flex;\n  display: -webkit-flexbox;\n  flex-direction: row;\n  width: 98%;\n  max-width: 98%;\n  flex-wrap: wrap; }\n\n/* ul li:nth-child(3) { */\n/*     order: 3; */\n/*     border: thin solid green; */\n/* } */\n/* ul li:nth-child(1) { */\n/*     order: 2; */\n/*     border: thin solid red; */\n/* } */\nli {\n  text-align: center;\n  list-style: none;\n  margin: 10px;\n  padding: 10px 10px;\n  border: thin solid blue;\n  flex: 250px;\n  cursor: pointer; }\n\n.preview {\n  display: block;\n  width: 100%;\n  background: #ccc;\n  padding: 40px;\n  text-align: center; }\n", ""]);
+	exports.push([module.id, "html, body {\n  margin: 0;\n  padding: 0; }\n\nh2 span {\n  color: blue; }\n\nul {\n  border: 2px dotted black;\n  flex-align: center;\n  padding: 0;\n  display: flex;\n  display: -webkit-flexbox;\n  flex-direction: row;\n  width: 98%;\n  max-width: 98%;\n  flex-wrap: wrap; }\n\n/* ul li:nth-child(3) { */\n/*     order: 3; */\n/*     border: thin solid green; */\n/* } */\n/* ul li:nth-child(1) { */\n/*     order: 2; */\n/*     border: thin solid red; */\n/* } */\nli {\n  text-align: center;\n  list-style: none;\n  margin: 10px;\n  padding: 10px 10px;\n  border: thin solid blue;\n  flex: 250px;\n  cursor: pointer; }\n\n.preview {\n  display: block;\n  width: 100%;\n  background: #ccc;\n  padding: 40px;\n  text-align: center; }\n\n.show {\n  display: block; }\n\n.hide {\n  display: none; }\n", ""]);
 	
 	// exports
 
@@ -26524,7 +26527,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: this.props.style },
 	                _react2.default.createElement(
 	                    'h1',
 	                    null,

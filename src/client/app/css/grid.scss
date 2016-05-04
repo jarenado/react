@@ -3,6 +3,7 @@ html,body {
     padding: 0;
 }
 
+
 h2 {
     span {
 	color: blue;
@@ -47,4 +48,10 @@ li  {
     background: #ccc;
     padding: 40px;
     text-align: center;
+}
+.show {
+    display: block;
+}
+.hide {
+  display: none;
 }

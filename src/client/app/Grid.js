@@ -9,6 +9,7 @@ class Grid extends React.Component {
         super();
         this.handleModal = this.handleModal.bind(this);
         this.state = {
+            isActive: false,
             activeModal: '1',
             sites: [
                 {
@@ -33,7 +34,7 @@ class Grid extends React.Component {
     }
 
     handleModal(data) {
-        this.setState({activeModal:data});
+        this.setState({activeModal:data, isActive: true});
     }
 
     render() {
@@ -41,13 +42,15 @@ class Grid extends React.Component {
         var sites = this.state.sites.map(function(site){
             return <Site site={site}  onClick={this.handleModal}  />;
         }.bind(this));
+        var inlineStyles = this.state.isActive ? 'show' : 'hide';
+        console.log(inlineStyles);
 
         return (
             <div>
                 <ul class="sites">
                     {sites}
                 </ul>
-                <Modal site={site} />
+                <Modal style={inlineStyles} site={site} />
             </div>
 	      );
     }

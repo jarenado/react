@@ -14,8 +14,13 @@ class Site extends React.Component {
 
     render() {
         return (
-                <li ref="siteData" onClick={this.handleClick} data-id={this.props.site.id} data-preview={this.props.site.description}>
-            {this.props.site.title}
+            <li ref="siteData"
+                onClick={this.handleClick}
+                data-id={this.props.site.id}
+                data-preview={this.props.site.description}>
+
+                {this.props.site.title}
+
             </li>
         );
             }

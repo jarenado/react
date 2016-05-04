@@ -8,6 +8,8 @@ class Grid extends React.Component {
     constructor() {
         super();
         this.handleModal = this.handleModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+        
         this.state = {
             isActive: false,
             activeModal: '1',
@@ -33,6 +35,11 @@ class Grid extends React.Component {
 
     }
 
+    closeModal() {
+        this.setState({isActive: false});
+        
+    }
+
     handleModal(data) {
         this.setState({activeModal:data, isActive: true});
     }
@@ -43,14 +50,13 @@ class Grid extends React.Component {
             return <Site site={site}  onClick={this.handleModal}  />;
         }.bind(this));
         var inlineStyles = this.state.isActive ? 'show' : 'hide';
-        console.log(inlineStyles);
 
         return (
             <div>
                 <ul class="sites">
                     {sites}
                 </ul>
-                <Modal style={inlineStyles} site={site} />
+                <Modal style={inlineStyles} site={site} onClick={this.closeModal} />
             </div>
 	      );
     }

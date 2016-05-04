@@ -26006,6 +26006,8 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).call(this));
 	
 	        _this.handleModal = _this.handleModal.bind(_this);
+	        _this.closeModal = _this.closeModal.bind(_this);
+	
 	        _this.state = {
 	            isActive: false,
 	            activeModal: '1',
@@ -26028,6 +26030,11 @@
 	    }
 	
 	    _createClass(Grid, [{
+	        key: 'closeModal',
+	        value: function closeModal() {
+	            this.setState({ isActive: false });
+	        }
+	    }, {
 	        key: 'handleModal',
 	        value: function handleModal(data) {
 	            this.setState({ activeModal: data, isActive: true });
@@ -26040,7 +26047,6 @@
 	                return _react2.default.createElement(_Site2.default, { site: site, onClick: this.handleModal });
 	            }.bind(this));
 	            var inlineStyles = this.state.isActive ? 'show' : 'hide';
-	            console.log(inlineStyles);
 	
 	            return _react2.default.createElement(
 	                'div',
@@ -26050,7 +26056,7 @@
 	                    { 'class': 'sites' },
 	                    sites
 	                ),
-	                _react2.default.createElement(_Modal2.default, { style: inlineStyles, site: site })
+	                _react2.default.createElement(_Modal2.default, { style: inlineStyles, site: site, onClick: this.closeModal })
 	            );
 	        }
 	    }]);
@@ -26473,7 +26479,10 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'li',
-	                { ref: 'siteData', onClick: this.handleClick, 'data-id': this.props.site.id, 'data-preview': this.props.site.description },
+	                { ref: 'siteData',
+	                    onClick: this.handleClick,
+	                    'data-id': this.props.site.id,
+	                    'data-preview': this.props.site.description },
 	                this.props.site.title
 	            );
 	        }
@@ -26519,15 +26528,23 @@
 	    function Modal() {
 	        _classCallCheck(this, Modal);
 	
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Modal).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Modal).call(this));
+	
+	        _this.closeModal = _this.closeModal.bind(_this);
+	        return _this;
 	    }
 	
 	    _createClass(Modal, [{
+	        key: 'closeModal',
+	        value: function closeModal() {
+	            this.props.onClick();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: this.props.style },
+	                { className: this.props.style, id: 'modal', onClick: this.closeModal },
 	                _react2.default.createElement(
 	                    'h1',
 	                    null,
